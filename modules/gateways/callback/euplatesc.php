@@ -114,7 +114,7 @@ if ($zcrsp['fp_hash'] === $fp_hash) {
 
             $cartid = $zcrsp['ep_id'];
             $amountx = $zcrsp['amount'];
-            $docheck = Capsule::table('euplatesc')->select('id')->where('invoiceid', $invoiceid);
+            $docheck = Capsule::table('euplatesc')->select('id')->where('invoiceid', $invoiceid)->get();
             if (!$docheck) {
                 $real = Capsule::table('euplatesc') - insert([
                         'invoiceid' => $invoiceid,
